@@ -8,6 +8,8 @@ import com.rabbitmq.client.DeliverCallback;
 import java.io.IOException;
 import java.util.concurrent.TimeoutException;
 
+//For creating multiple consumers.
+
 public class Consumer2 {
     public static void main(String[] args) throws IOException, TimeoutException {
         ConnectionFactory connectionFactory = new ConnectionFactory();
