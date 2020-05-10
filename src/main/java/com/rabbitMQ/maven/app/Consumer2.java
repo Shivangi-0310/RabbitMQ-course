@@ -1,8 +1,7 @@
 package com.rabbitMQ.maven.app;
 
+import com.rabbitMQ.maven.app.fragment.Fragment;
 import com.rabbitmq.client.Channel;
-import com.rabbitmq.client.Connection;
-import com.rabbitmq.client.ConnectionFactory;
 import com.rabbitmq.client.DeliverCallback;
 
 import java.io.IOException;
@@ -12,10 +11,7 @@ import java.util.concurrent.TimeoutException;
 
 public class Consumer2 {
     public static void main(String[] args) throws IOException, TimeoutException {
-        ConnectionFactory connectionFactory = new ConnectionFactory();
-        Connection connection = connectionFactory.newConnection();
-        Channel channel = connection.createChannel();
-
+        Channel channel = Fragment.createCommonObject();
         DeliverCallback deliverCallback = (consumer, delivery)->{
             String message = new String(delivery.getBody());
             System.out.println("message received = "+message);
